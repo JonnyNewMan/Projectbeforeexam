@@ -1,0 +1,73 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+.btn {
+  &--primary {
+    @include desktop {
+      background: $navy;
+      color: $white;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      transition: $transition;
+      box-shadow: 0 4px 16px rgba($navy, 0.25);
+
+      &:hover {
+        background: $navy-mid;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba($navy, 0.35);
+      }
+    }
+  }
+
+  &--secondary {
+    @include desktop {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: none;
+      color: $text-body;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        color: $navy;
+
+        .play-btn {
+          background: $gold;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.play-btn {
+  @include desktop {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $navy;
+    @include flex-center;
+    flex-shrink: 0;
+    transition: $transition;
+  }
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid $white;
+  margin-left: 2px;
+}

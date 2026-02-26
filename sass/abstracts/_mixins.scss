@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+$navy:        #0d1b2e;
+$navy-mid:    #162236;
+$gold:        #e8c547;
+$white:       #ffffff;
+$off-white:   #f8f6f1;
+$text-muted:  #8a9bb5;
+$text-body:   #3a4a5c;
+$blue-dot:    #3b82f6;
+
+// ── Spacing & Shape ───────────────────────────
+$radius-sm:   8px;
+$radius-md:   16px;
+
+$shadow-card: 0 8px 32px rgba($navy, 0.12);
+$shadow-btn:  0 4px 16px rgba($gold, 0.35);
+$transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$bp-mobile:   768px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-mobile + 1px}) {
+    @content;
+  }
+}
