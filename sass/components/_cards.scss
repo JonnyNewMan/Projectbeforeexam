@@ -1,0 +1,166 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+// =============================================
+// STAT CARDS WRAPPER
+// =============================================
+
+.stats-cards {
+  @include desktop {
+    position: absolute;
+    top: 20px;
+    // blob is 408px wide, right-anchored to image-wrap
+    // cards sit at blob's left edge minus 80px so they overlap it
+    left: calc(100% - 408px - 80px);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+// =============================================
+// STAT CARD
+// =============================================
+
+.stat-card {
+  @include desktop {
+    background: $white;
+    border-radius: $radius-md;
+    padding: 14px 18px;
+    box-shadow: $shadow-card;
+    width: 160px;
+    animation: floatUp 0.6s ease both;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba($navy, 0.18);
+    }
+
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.3s;  }
+  }
+
+  &__label {
+    @include desktop {
+      font-size: 11px;
+      font-weight: 500;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  &__badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $gold;
+    @include flex-center;
+    font-size: 14px;
+    color: $navy;
+    font-weight: 700;
+  }
+
+  &__online {
+    font-size: 12px;
+    color: $text-muted;
+  }
+
+  &__number {
+    @include desktop {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: $navy;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__avatars {
+    display: flex;
+    margin-top: 8px;
+  }
+}
+
+// =============================================
+// MINI AVATARS (inside cards)
+// =============================================
+
+.mini-av {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid $white;
+  margin-right: -7px;
+  font-size: 8px;
+  @include flex-center;
+  font-weight: 600;
+  color: $white;
+
+  &:nth-child(1) { background: #e07b54; }
+  &:nth-child(2) { background: #54a0c8; z-index: 1; }
+  &:nth-child(3) { background: #9b7ec8; z-index: 2; }
+  &:nth-child(4) { background: #4cb8a0; z-index: 3; }
+}
+
+// =============================================
+// HERO AVATARS (students strip)
+// =============================================
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  @include desktop {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid $off-white;
+    margin-right: -10px;
+    @include flex-center;
+    font-size: 13px;
+    font-weight: 600;
+    color: $white;
+
+    &:nth-child(1) { background: #4a7fa5; }
+    &:nth-child(2) { background: #6b5b9a; z-index: 1; }
+    &:nth-child(3) { background: #c97b4b; z-index: 2; }
+  }
+}
+
+.students-label {
+  @include desktop {
+    font-size: 13px;
+    font-weight: 500;
+    color: $text-body;
+    margin-left: 18px;
+  }
+}
+
+// =============================================
+// SCROLL DOTS
+// =============================================
+
+.scroll-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $text-body;
+  animation: scrollBounce 1.5s infinite;
+
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.3s;  }
+}

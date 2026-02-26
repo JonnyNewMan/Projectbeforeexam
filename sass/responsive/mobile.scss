@@ -1,0 +1,319 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.menu-toggle-input {
+  display: none;
+}
+
+.menu-toggle-input:checked {
+  ~ .mobile-menu-overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  ~ .mobile-menu {
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu-overlay {
+  @include mobile {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75vw;
+  max-width: 300px;
+  height: 100vh;
+  background: $white;
+  z-index: 300;
+  padding: 24px 28px;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 32px rgba($navy, 0.15);
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: 44px;
+  }
+
+  &__logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: $navy;
+
+    .dot {
+      color: $blue-dot;
+      font-size: 22px;
+      vertical-align: middle;
+      line-height: 0;
+    }
+  }
+
+  &__close {
+    width: 32px;
+    height: 32px;
+    @include flex-center;
+    font-size: 18px;
+    color: $text-body;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+    user-select: none;
+
+    &:hover {
+      background: $off-white;
+    }
+  }
+
+  &__nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    li a {
+      display: block;
+      padding: 16px 4px;
+      font-size: 16px;
+      font-weight: 400;
+      color: $text-body;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      transition: $transition;
+
+      &:hover {
+        color: $navy;
+        padding-left: 10px;
+      }
+    }
+
+    li:last-child a {
+      border-bottom: none;
+    }
+  }
+
+  &__footer {
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  &__btn {
+    width: 100%;
+    background: $navy;
+    border: none;
+    color: $white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background: $navy-mid;
+    }
+  }
+}
+.hamburger {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    user-select: none;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $text-body;
+      border-radius: 2px;
+      transition: $transition;
+    }
+  }
+}
+
+
+.navbar {
+  @include mobile {
+    background: $white;
+    padding: 0 20px;
+    height: 56px;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__logo {
+    @include mobile {
+      color: $navy;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  &__links {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__icon {
+    @include mobile {
+      background: transparent;
+      color: $text-body;
+
+      &:hover {
+        background: $off-white;
+      }
+    }
+  }
+
+  &__signin {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__trial {
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+
+.hero {
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 0;
+    min-height: auto;
+    gap: 0;
+    align-items: start;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 12px;
+
+      .accent {
+        color: $navy;
+        font-style: normal;
+      }
+    }
+  }
+
+  &__desc {
+    @include mobile {
+      font-size: 14px;
+      margin-bottom: 24px;
+      max-width: 100%;
+    }
+  }
+
+  &__cta {
+    @include mobile {
+      gap: 14px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__students {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__right {
+    @include mobile {
+      margin-top: 28px;
+    }
+  }
+
+  &__blob {
+    @include mobile {
+      right: 5%;
+      width: 190px;
+      height: 240px;
+    }
+  }
+
+  &__person {
+    @include mobile {
+      max-height: 340px;
+    }
+  }
+
+  &__scroll-hint {
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+
+.btn {
+  &--primary {
+    @include mobile {
+      font-size: 14px;
+      padding: 11px 20px;
+    }
+  }
+
+  &--secondary {
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+}
+
+.stats-cards {
+  @include mobile {
+    left: 0;
+    top: 16px;
+  }
+}
+
+.stat-card {
+  @include mobile {
+    min-width: 120px;
+    padding: 9px 12px;
+  }
+
+  &__label {
+    @include mobile {
+      font-size: 9px;
+    }
+  }
+
+  &__number {
+    @include mobile {
+      font-size: 17px;
+    }
+  }
+}
