@@ -317,3 +317,331 @@
     }
   }
 }
+
+
+
+.container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: "poppins";
+  }
+
+.section-title { 
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.section-subtitle { 
+    text-align: center;
+    margin: 10px 0 30px;
+    color: #666;
+    font-size: 14px;
+  }
+
+.btn {
+  
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+
+    &--dark{
+        background-color: $title-color-bg;
+        color: $white;
+    }
+}
+
+
+.reviews {
+  padding: 90px 0;
+  background: transparent;
+  text-align: center;
+}
+
+.reviews__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: $title-color-bg;
+}
+
+.reviews__subtitle {
+  max-width: 600px;
+  margin: 18px auto 50px;
+  font-size: 15px;
+  color: #6f6f6f;
+  
+}
+
+/* Cards */
+
+.reviews__wrapper {
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+}
+
+.review-card {
+  background: $white;
+  padding: 22px;
+  border-radius: 24px;
+  justify-content: center;
+  box-shadow: 2px 4px 28px 0 rgba(0,0,0,0.08);
+  transition: 0.35s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Header */
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 14px;
+  width: 229px;
+  height: 70px;
+}
+
+.review-card__header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.review-card__header h4 {
+  font-size: 18px;
+  line-height: 26px;
+  color: $review-color-black;
+}
+
+.review-card__header span {
+  font-size: 14px;
+  line-height: 24px;
+  color: $review-color-black;
+}
+
+/* Text */
+
+.review-card p {
+  font-size: 16px;
+  line-height: 24px;
+   color: $review-color-black;
+}
+
+/* Bottom Controls */
+
+.reviews__bottom {
+  margin-top: 20px;
+}
+
+/* Mobile See More */
+
+.reviews__btn {
+  padding: 12px 30px;
+  border-radius: 10px;
+  border: none;
+  background: $contact-btn-blue;
+  color: $white;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Arrows */
+
+.reviews__arrows {
+  justify-content: center;
+  display: none;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.reviews__arrow {
+  justify-content: center;
+  width: 48px;
+  height: 49px;
+  border-radius: 6px;
+  border: none;
+  background-color: transparent;
+  
+  font-size: 28px;
+  color: #000000;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.reviews__arrow:hover {
+  background: $contact-btn-blue;
+  color: $white;
+  transform: scale(1.1);
+}
+
+//contact sextion
+
+
+.contact {
+  box-sizing: border-box;
+  background: transparent;
+  padding: 24px 13px;
+  text-align: center;
+  margin-right: 24px;
+  margin-left: 24px;
+  border-radius: 10px;
+  gap: 16px;
+  background-color: $contact-gold;
+  }
+
+
+
+.contact__header {
+  margin-bottom: 48px;
+}
+
+.contact__title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: $title-color-bg;
+  margin-bottom: 18px;
+}
+
+.contact__description {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* FORM */
+
+.contact__form {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact__group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact__field,
+.contact__textarea {
+  width: 100%;
+  padding: 18px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 15px;
+  background: $white;
+  transition: 0.3s ease;
+}
+
+.contact__field:focus,
+.contact__textarea:focus {
+  outline: none;
+  border-color: $contact-btn-blue;
+}
+
+.contact__textarea {
+  min-height: 180px;
+  resize: none;
+}
+
+/* BUTTON */
+
+.contact__button {
+  align-self: center;
+  padding: 18px 48px;
+  border-radius: 12px;
+  border: none;
+  background: $contact-btn-blue;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.35s ease;
+  
+}
+
+.contact__button:hover {
+  transform: translateY(-3px);
+}
+
+/* Desktop */
+
+@media (min-width: 992px) {
+
+  .reviews__wrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .review-card {
+    width: 400px;
+    height: 230px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide mobile button */
+
+  .reviews__btn {
+    display: none;
+  }
+
+  /* Show arrows */
+
+  .reviews__arrows {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .reviews__title {
+    font-size: 42px;
+  }
+//contact section
+  .contact {
+  box-sizing: border-box;
+  background: transparent;
+  padding: 40px 32px;
+  text-align: center;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 29px;
+  gap: 10px;
+  background-color: $contact-gold;
+  }
+
+  .contact__title {
+    font-size: 44px;
+  }
+
+  .contact__group {
+    flex-direction: row;
+    gap: 26px;
+  }
+
+  .contact__field {
+    width: 50%;
+  }
+
+  .contact__description {
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+}
